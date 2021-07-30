@@ -1,0 +1,35 @@
+from math import cos, sin, radians
+import matplotlib.pyplot as plt
+
+def circ(r, x0, y0, cor):
+    xs = []
+    ys = []
+
+    n = 60
+    delta_angulo = 360 / n
+
+    for i in range(n + 1):
+        angulo = delta_angulo * i
+        rad = radians(angulo)
+
+        x = r * cos(rad) + x0
+        y = r * sin(rad) + y0
+
+        xs.append(x)
+        ys.append(y)
+    
+
+    plt.plot(xs, ys, cor)
+
+circ(100, 0, 0, "k")
+circ(5, 30, 40, "k")
+circ(5, -30, 40, "k")
+
+
+
+xs = range(-50, 50)
+ys = [x**2 / 100 -50 for x in xs]
+plt.plot(xs, ys, "k")
+
+plt.axis("equal")
+plt.show()
